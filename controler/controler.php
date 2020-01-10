@@ -12,4 +12,8 @@ function home()
 function displaySnows(){
     require_once 'view/displaySnows.php';
 }
+
+function login(){
+    require_once 'view/login.php';
+}
 ?>
