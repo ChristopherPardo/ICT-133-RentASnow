@@ -23,6 +23,8 @@ function disconnect(){
 }
 
 function tryLogin($username,$password){
-
+    $_SESSION["user"] = $username;
+    $_SESSION["password"] = $password;
+    home();
 }
 ?>
