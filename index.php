@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$_SESSION["user"]="toto";
 require "controler/controler.php";
 
 $page = $_GET["action"];
@@ -11,6 +11,8 @@ switch ($page){
     case "login" :
         login();
         break;
+    case "disconect" :
+        disconect();
     default :
         home();
         break;

@@ -1,4 +1,7 @@
-﻿<!DOCTYPE HTML>
+﻿<?php
+require_once "helpers/helpers.php";
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -51,7 +54,7 @@
                         <!-- On commence par afficher les boutons qui s'afficheront, peu importe les événements-->
                         <li><a href="index.php?action=home">Home</a></li>
                         <li><a href="index.php?action=displaySnows">Snows</a></li>
-                        <li><a href="index.php?action=login">Login</a></li>
+                        <li><?= login_bt(); ?></li>
                     </ul>
                 </div>
             </div>
