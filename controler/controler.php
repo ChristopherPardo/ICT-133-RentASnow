@@ -17,9 +17,12 @@ function login(){
     require_once 'view/login.php';
 }
 
-
 function disconnect(){
     session_unset();
     require_once 'view/disconnection.php';
+}
+
+function tryLogin($username,$password){
+
 }
 ?>

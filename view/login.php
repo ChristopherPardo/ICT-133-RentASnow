@@ -5,7 +5,7 @@ $title = "RentASnow - Login";
 <div id="container">
     <!-- zone de connexion -->
 
-    <form action="" method="">
+    <form action="index.php?action=tryLogin" method="POST">
         <h1>Connexion</h1>
 
         <label><b>Nom d'utilisateur</b></label>
