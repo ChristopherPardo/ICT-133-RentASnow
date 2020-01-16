@@ -13,6 +13,7 @@ switch ($page){
         break;
     case "disconnect" :
         disconnect();
+        break;
     default :
         home();
         break;
