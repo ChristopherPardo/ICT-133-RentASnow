@@ -18,6 +18,6 @@ function login(){
 }
 
 function disconect(){
-
+    session_unset();
 }
 ?>
