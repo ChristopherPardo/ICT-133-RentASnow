@@ -17,7 +17,7 @@ function login(){
     require_once 'view/login.php';
 }
 
-function disconect(){
+function disconnect(){
     session_unset();
 }
 ?>

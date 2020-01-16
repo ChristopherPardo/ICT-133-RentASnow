@@ -11,8 +11,8 @@ switch ($page){
     case "login" :
         login();
         break;
-    case "disconect" :
-        disconect();
+    case "disconnect" :
+        disconnect();
     default :
         home();
         break;
