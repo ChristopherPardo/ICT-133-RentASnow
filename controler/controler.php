@@ -20,5 +20,6 @@ function login(){
 
 function disconnect(){
     session_unset();
+    require_once 'view/disconnection.php';
 }
 ?>
