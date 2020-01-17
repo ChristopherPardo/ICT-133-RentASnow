@@ -17,6 +17,10 @@ function login(){
     require_once 'view/login.php';
 }
 
+function articlePage(){
+    require_once  'view/articlePage.php';
+}
+
 function disconnect(){
     session_unset();
     require_once 'view/disconnection.php';

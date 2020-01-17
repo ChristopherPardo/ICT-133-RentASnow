@@ -18,6 +18,10 @@ switch ($page){
         $password = $_POST["password"];
         tryLogin($username, $password);
         break;
+    case "articlePage" :
+        $articleId = $_GET["article"];
+        $snows = getSnows();
+        articlePage();
     default :
         home();
         break;

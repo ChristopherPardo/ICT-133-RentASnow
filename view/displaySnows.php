@@ -8,8 +8,8 @@ ob_start();
 <?php foreach ($snows as $snow) {
     if ($snow["disponible"] == true){ ?>
         <hr>
-        <img src="view/images/snows/<?= $snow['smallimage'] ?>">
-        <h2><?= $snow['modele'] ?></h2>
+        <a href="?action=articlePage&article=<?= $snow['id'] ?>"><img src="view/images/snows/<?= $snow['smallimage'] ?>">
+        <h2><?= $snow['modele'] ?></h2></a>
 <?php }
 } ?>
 
