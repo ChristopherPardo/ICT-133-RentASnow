@@ -19,8 +19,6 @@ switch ($page){
         tryLogin($username, $password);
         break;
     case "articlePage" :
-        $articleId = $_GET["article"];
-        $snows = getSnows();
         articlePage();
     default :
         home();
