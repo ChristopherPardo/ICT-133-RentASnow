@@ -34,6 +34,7 @@ function tryLogin($username,$password){
     }
 
     if(!isset($_SESSION["user"])){
+        $_SESSION["flashmessage"] = "Le nom d'utilisateur ou le mod de passe est incorrect";
         login();
     }
 }

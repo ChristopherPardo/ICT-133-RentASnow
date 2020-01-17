@@ -59,7 +59,7 @@ require_once "helpers/helpers.php";
                 </div>
             </div>
         </div>
-
+        <?= flashMessage() ?>
         <div class="contentArea">
             <div class="divPanel notop page-content">
                 <div class="row-fluid">
