@@ -13,7 +13,7 @@ function login_bt()
 function flashMessage()
 {
     if (isset($_SESSION["flashmessage"])) {
-        $res = "<div class='alert alert-danger'>" . $_SESSION["flashmessage"] . "</div>";
+        $res = "<div id='flashmessage' class='alert alert-danger'>" . $_SESSION["flashmessage"] . "</div>";
     }
     unset($_SESSION["flashmessage"]);
     return $res;
