@@ -18,10 +18,11 @@ foreach ($snows as $snow){
 $title = $article["modele"];
 ob_start();
 ?>
-<img src="view/images/snows/<?= $article['bigimage'] ?>">
 <hr>
-<h2><?= $article["modele"] ?></h2>
-<h2><?= $article["marque"] ?></h2>
+<img src="view/images/snows/<?= $article['bigimage'] ?>" alt="image of <?= $article['modele'] ?>" style="width:328px;height:600px;">
+<hr>
+<h2> modele : <?= $article["modele"] ?></h2>
+<h2> marque : <?= $article["marque"] ?></h2>
 
 <?php
 $content = ob_get_clean();
