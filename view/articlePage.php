@@ -15,10 +15,13 @@ foreach ($snows as $snow){
     ];
     }
 }
-var_dump($article["modele"]);
-$title = $snows["modele"];
+$title = $article["modele"];
 ob_start();
 ?>
+<img src="view/images/snows/<?= $article['bigimage'] ?>">
+<hr>
+<h2><?= $article["modele"] ?></h2>
+<h2><?= $article["marque"] ?></h2>
 
 <?php
 $content = ob_get_clean();
