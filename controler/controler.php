@@ -34,13 +34,20 @@ function disconnect(){
     require_once 'view/disconnection.php';
 }
 
-function tryLogin($username,$password){
+function tryLogin($username, $password){
     $users = getUsers();
 
     foreach ($users as $i => $user) {
         if($user["username"] == $username && $user["password"] == $password){
             $_SESSION["user"] = $username;
             $_SESSION["password"] = $password;
+
+            foreach ($users as $user) {
+                $_SESSION["birthdate"] = $user["birthdate"];
+                $_SESSION["date-inscription"] = $user["date-inscription"] ;
+                $_SESSION["employe"] = $user["employe"] ;
+                $_SESSION["wantnews"] = $user["wantnews"] ;
+            }
             home();
         }
     }
