@@ -23,6 +23,9 @@ ob_start();
 <hr>
 <h2> modele : <?= $article["modele"] ?></h2>
 <h2> marque : <?= $article["marque"] ?></h2>
+<?php if ($_SESSION["employe"] == true) { ?>
+<h3>Seul les empoyés peuvent voir ça</h3>
+<?php } ?>
 
 <?php
 $content = ob_get_clean();

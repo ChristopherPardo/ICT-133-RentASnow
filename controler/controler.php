@@ -41,13 +41,11 @@ function tryLogin($username, $password){
         if($user["username"] == $username && $user["password"] == $password){
             $_SESSION["user"] = $username;
             $_SESSION["password"] = $password;
+            $_SESSION["birthdate"] = $user["birthdate"];
+            $_SESSION["date-inscription"] = $user["date-inscription"] ;
+            $_SESSION["employe"] = $user["employe"] ;
+            $_SESSION["wantnews"] = $user["wantnews"] ;
 
-            foreach ($users as $user) {
-                $_SESSION["birthdate"] = $user["birthdate"];
-                $_SESSION["date-inscription"] = $user["date-inscription"] ;
-                $_SESSION["employe"] = $user["employe"] ;
-                $_SESSION["wantnews"] = $user["wantnews"] ;
-            }
             home();
         }
     }
