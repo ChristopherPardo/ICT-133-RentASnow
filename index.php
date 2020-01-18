@@ -32,6 +32,9 @@ switch ($page){
         $wantnews = $_POST["wantnews"];
         tryInscription($username, $password, $birthdate, $employe, $wantnews);
         break;
+    case "personalPage" :
+        personalPage();
+        break;
     default :
         home();
         break;

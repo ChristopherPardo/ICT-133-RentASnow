@@ -25,6 +25,10 @@ function inscription(){
     require_once 'view/inscription.php';
 }
 
+function personalPage(){
+    require_once 'view/personalPage.php';
+}
+
 function disconnect(){
     session_unset();
     require_once 'view/disconnection.php';
