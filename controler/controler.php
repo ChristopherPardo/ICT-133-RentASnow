@@ -21,6 +21,10 @@ function articlePage(){
     require_once  'view/articlePage.php';
 }
 
+function inscription(){
+    require_once 'view/inscription.php';
+}
+
 function disconnect(){
     session_unset();
     require_once 'view/disconnection.php';

@@ -56,7 +56,8 @@ require_once "helpers/helpers.php";
                         <!-- On commence par afficher les boutons qui s'afficheront, peu importe les événements-->
                         <li><a href="index.php?action=home">Home</a></li>
                         <li><a href="index.php?action=displaySnows">Snows</a></li>
-                        <li><?= login_bt(); ?></li>
+                        <?= login_bt(); ?>
+
                     </ul>
                 </div>
             </div>

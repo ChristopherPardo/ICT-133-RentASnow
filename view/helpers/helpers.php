@@ -3,9 +3,10 @@
 function login_bt()
 {
     if (isset($_SESSION["user"])) {
-        return "<a href='index.php?action=disconnect'>Disconnect</a>";
+        return "<li><a href='index.php?action=disconnect'>Disconnect</a></li>";
     } else {
-        return "<a href='index.php?action=login'>Login</a>";
+        return "<li><a href='index.php?action=login'>Login</a></li>
+                <li><a href='index.php?action=inscription'>Inscription</a></li>";
     }
 
 }

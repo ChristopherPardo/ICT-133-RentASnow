@@ -20,6 +20,10 @@ switch ($page){
         break;
     case "articlePage" :
         articlePage();
+        break;
+    case "inscription" :
+        inscription();
+        break;
     default :
         home();
         break;
