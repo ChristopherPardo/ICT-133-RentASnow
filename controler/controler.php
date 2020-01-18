@@ -46,4 +46,12 @@ function tryLogin($username,$password){
         login();
     }
 }
+
+function tryInscription($username, $password, $birthdate, $employe, $wantnews){
+    var_dump($username);
+    var_dump($password);
+    var_dump($birthdate);
+    var_dump("$employe");
+    var_dump($wantnews);
+}
 ?>

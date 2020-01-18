@@ -24,6 +24,14 @@ switch ($page){
     case "inscription" :
         inscription();
         break;
+    case "tryInscription" :
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $birthdate = $_POST["birthdate"];
+        $employe = $_POST["employe"];
+        $wantnews = $_POST["wantnews"];
+        tryInscription($username, $password, $birthdate, $employe, $wantnews);
+        break;
     default :
         home();
         break;
