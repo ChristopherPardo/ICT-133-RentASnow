@@ -22,7 +22,7 @@ ob_start();
         <label><b>Voulez-vous vous inscrire à la newsletter ?</b></label>
         <input type="checkbox" name="wantnews">
         <br>
-        <input type="submit" value='Conection'>
+        <input type="submit" value='Connexion'>
     </form>
 </div>
 

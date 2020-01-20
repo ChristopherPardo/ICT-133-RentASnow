@@ -70,7 +70,7 @@ function tryInscription($username, $password, $birthdate, $employe, $wantnews){
 
     foreach ($users as $user){
         if($user["username"] == $username){
-            $_SESSION["flashmessage"] = "Le nom d'utilisateur est déjà utilisé";
+            $_SESSION["flashmessage"] = "Le nom d'utilisateur est déjà utiliser";
             inscription();
         }
     }
