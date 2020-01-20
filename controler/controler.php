@@ -56,11 +56,23 @@ function tryLogin($username, $password){
     }
 }
 
+function valueForm($value){
+    if ($value == "on"){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 function tryInscription($username, $password, $birthdate, $employe, $wantnews){
-    var_dump($username);
-    var_dump($password);
-    var_dump($birthdate);
-    var_dump("$employe");
-    var_dump($wantnews);
+
+    $employe = valueForm($employe);
+    $wantnews = valueForm($wantnews);
+
+    $users = getUsers();
+    $users[] = ["username" => $username, "password" => $password, "birthdate" => $birthdate, "wantnews" => $wantnews, "date-inscription" => date("Y-m-d", time()), "employe" => $employe];
+    addUser($users);
+    tryLogin($username, $password);
 }
 ?>
