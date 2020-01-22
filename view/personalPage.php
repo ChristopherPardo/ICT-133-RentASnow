@@ -13,6 +13,11 @@ ob_start();
 <h2>Nom : <?= $_SESSION["user"] ?></h2>
 <h2>Date de naissance : <?= $_SESSION["birthdate"] ?></h2>
 <h3>Inscrit depuis le <?= $_SESSION["date-inscription"] ?></h3>
+<?php if ($_SESSION["employe"] == true) { ?>
+    <h3>Vous êtes un employé</h3>
+   <?php } else { ?>
+    <h3>Vous êtes un client</h3>
+    <?php } ?>
 
 <?php
 $content = ob_get_clean();

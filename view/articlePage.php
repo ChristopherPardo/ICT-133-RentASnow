@@ -29,14 +29,11 @@ ob_start();
 <hr>
 <h2> modele : <?= $article["modele"] ?></h2>
 <h2> marque : <?= $article["marque"] ?></h2>
-<h2><?php
-    if ($article["disponible"] == true){
-        echo "Disponible";
-    }
-    else{
-        echo "Indisponible";
-    }
-    ?></h2>
+<?php if ($article["disponible"] == true) { ?>
+    <h2>Disponible</h2>
+    <?php } else { ?>
+    <h2>Indisponible</h2>
+    <?php } ?>
 
 <?php
 $content = ob_get_clean();
