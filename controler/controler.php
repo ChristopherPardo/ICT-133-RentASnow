@@ -71,15 +71,18 @@ function tryInscription($username, $password, $birthdate, $employe, $wantnews){
     foreach ($users as $user){
         if($user["username"] == $username){
             $_SESSION["flashmessage"] = "Le nom d'utilisateur est déjà utiliser";
+            $inscription = false;
             inscription();
         }
     }
 
-    $employe = valueForm($employe);
-    $wantnews = valueForm($wantnews);
+    if (!isset($inscription)){
+        $employe = valueForm($employe);
+        $wantnews = valueForm($wantnews);
 
-    $users[] = ["username" => $username, "password" => $password, "birthdate" => $birthdate, "wantnews" => $wantnews, "date-inscription" => date("Y-m-d", time()), "employe" => $employe];
-    addUser($users);
-    tryLogin($username, $password);
+        $users[] = ["username" => $username, "password" => $password, "birthdate" => $birthdate, "wantnews" => $wantnews, "date-inscription" => date("Y-m-d", time()), "employe" => $employe];
+        addUser($users);
+        tryLogin($username, $password);
+    }
 }
 ?>
