@@ -1,4 +1,10 @@
 <?php
+/*
+ * Author : Christopher Pardo
+ * Date : 22.01.2020
+ * Project : Rent a snow
+ */
+
 $snows = getSnows();
 $article["id"] = $_GET["article"];
 
