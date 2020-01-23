@@ -8,6 +8,13 @@
 session_start();
 require "controler/controler.php";
 
+
+if (isset($_POST["username"])){
+    //extract($_POST); //$username,$password,$birthdate,$employe,$wantnews,$date-inscription
+    $username = $_POST["username"];
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+}
+
 $page = $_GET["action"];
 switch ($page){
     case "displaySnows" :
@@ -20,8 +27,6 @@ switch ($page){
         disconnect();
         break;
     case "tryLogin" :
-        $username = $_POST["username"];
-        $password = $_POST["password"];
         tryLogin($username, $password);
         break;
     case "articlePage" :
@@ -31,8 +36,6 @@ switch ($page){
         inscription();
         break;
     case "tryInscription" :
-        $username = $_POST["username"];
-        $password = $_POST["password"];
         $birthdate = $_POST["birthdate"];
         $employe = $_POST["employe"];
         $wantnews = $_POST["wantnews"];

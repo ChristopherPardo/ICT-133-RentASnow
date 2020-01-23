@@ -44,7 +44,7 @@ function disconnect(){
 function tryLogin($username, $password){
     $users = getUsers();
 
-    foreach ($users as $i => $user) {
+    foreach ($users as $user) {
         //If the username and the password are true the user connect to the session
         if($user["username"] == $username && $user["password"] == $password){
             $_SESSION["user"] = $username;
