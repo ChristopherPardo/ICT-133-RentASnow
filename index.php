@@ -15,7 +15,7 @@ if (isset($_POST["username"])){
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 }
 
-$page = $_GET["action"];
+$page = $_POST["action"];
 switch ($page){
     case "displaySnows" :
         displaySnows();
