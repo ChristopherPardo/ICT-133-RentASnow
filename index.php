@@ -12,10 +12,11 @@ require "controler/controler.php";
 if (isset($_POST["username"])){
     //extract($_POST); //$username,$password,$birthdate,$employe,$wantnews,$date-inscription
     $username = $_POST["username"];
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    //$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $password = $_POST["password"];
 }
 
-$page = $_POST["action"];
+$page = $_GET["action"];
 switch ($page){
     case "displaySnows" :
         displaySnows();
@@ -43,6 +44,10 @@ switch ($page){
         break;
     case "personalPage" :
         personalPage();
+        break;
+    case "changeDispo" :
+        $article = $_GET["article"];
+        changeDispo($article);
         break;
     default :
         home();

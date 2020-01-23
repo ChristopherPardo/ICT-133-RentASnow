@@ -8,10 +8,12 @@
 $snows = getSnows();
 $article["id"] = $_GET["article"];
 
+
 foreach ($snows as $snow){
     if ($snow["id"] == $article["id"]){
         $article = [
 
+            "id" => $snow["id"],
             "modele" => $snow["modele"],
             "marque" => $snow["marque"],
             "bigimage" => $snow["bigimage"],
@@ -29,11 +31,17 @@ ob_start();
 <hr>
 <h2> modele : <?= $article["modele"] ?></h2>
 <h2> marque : <?= $article["marque"] ?></h2>
+<form action="index.php?action=changeDispo&article=<?= $article['id'] ?>" method="post">
 <?php if ($article["disponible"] == true) { ?>
     <h2>Disponible</h2>
+    <br>
+        <input type="submit" class="button" name="undispo" value="Rendre indisponible">
     <?php } else { ?>
     <h2>Indisponible</h2>
+    <br>
+        <input type="submit" class="button" name="dispo" value="Rendre Disponible">
     <?php } ?>
+</form>
 
 <?php
 $content = ob_get_clean();

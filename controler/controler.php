@@ -98,4 +98,25 @@ function tryInscription($username, $password, $birthdate, $employe, $wantnews){
         tryLogin($username, $password); //Log the user
     }
 }
+
+//Change de disponibility of an article
+function changeDispo($articleWanted) {
+    $articles = getSnows();
+
+    foreach ($articles as $article) {
+        if ($articleWanted == $article["id"]) {
+            if ($article["disponible"] == true) {
+                $articles[[$article]["disponible"]] = false;
+            }
+            else {
+                $articles[[$article]["disponible"]] = true;
+            }
+        }
+    }
+
+    changeArticle($articles);
+    displaySnows();
+
+}
+
 ?>

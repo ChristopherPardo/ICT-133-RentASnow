@@ -19,4 +19,8 @@ function addUser($users)
 {
     file_put_contents('model/dataStorage/users.json', json_encode($users));
 }
+function changeArticle($articles)
+{
+    file_put_contents('model/dataStorage/snows.json', json_encode($articles));
+}
 ?>
