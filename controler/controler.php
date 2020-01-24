@@ -111,11 +111,13 @@ function changeDispo($articleWanted) {
             else {
                 $articles[$i]["disponible"] = true;
             }
+
+            changeArticle($articles);
+            articlePage($article);
         }
     }
 
-    changeArticle($articles);
-    displaySnows();
+
 
 }
 
