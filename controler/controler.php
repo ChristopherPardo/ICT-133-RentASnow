@@ -103,13 +103,13 @@ function tryInscription($username, $password, $birthdate, $employe, $wantnews){
 function changeDispo($articleWanted) {
     $articles = getSnows();
 
-    foreach ($articles as $article) {
+    foreach ($articles as $i => $article) {
         if ($articleWanted == $article["id"]) {
             if ($article["disponible"] == true) {
-                $articles[[$article]["disponible"]] = false;
+                $articles[$i]["disponible"] = false;
             }
             else {
-                $articles[[$article]["disponible"]] = true;
+                $articles[$i]["disponible"] = true;
             }
         }
     }
