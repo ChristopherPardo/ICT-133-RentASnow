@@ -19,6 +19,10 @@ ob_start();
     <h3>Vous êtes un client</h3>
     <?php } ?>
 
+<form action="index.php?action=delUser" method="post">
+    <input type="submit" class="button" value="Supprimer votre profil">
+</form>
+
 <?php
 $content = ob_get_clean();
 require "gabarit.php";

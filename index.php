@@ -49,6 +49,10 @@ switch ($page){
         $article = $_GET["article"];
         changeDispo($article);
         break;
+    case "delUser" :
+        $username = $_SESSION["user"];
+        delUser($username);
+        break;
     default :
         home();
         break;

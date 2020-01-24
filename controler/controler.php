@@ -94,7 +94,7 @@ function tryInscription($username, $password, $birthdate, $employe, $wantnews){
         $wantnews = valueForm($wantnews);
 
         $users[] = ["username" => $username, "password" => $password, "birthdate" => $birthdate, "wantnews" => $wantnews, "date-inscription" => date("Y-m-d", time()), "employe" => $employe];
-        addUser($users); //Add the user in the DataSheet
+        updateUser($users); //Add the user in the DataSheet
         tryLogin($username, $password); //Log the user
     }
 }
@@ -117,6 +117,19 @@ function changeDispo($articleWanted) {
     changeArticle($articles);
     displaySnows();
 
+}
+
+function delUser($username) {
+   $users = getUsers();
+
+   foreach ($users as $i => $user) {
+       if ($user["username"] == $username) {
+           unset($users[$i]);
+       }
+   }
+
+   updateUser($users);
+   disconnect();
 }
 
 ?>
