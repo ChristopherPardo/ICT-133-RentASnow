@@ -6,23 +6,6 @@
  */
 
 $snows = getSnows();
-$article["id"] = $_GET["article"];
-
-
-foreach ($snows as $snow){
-    if ($snow["id"] == $article["id"]){
-        $article = [
-
-            "id" => $snow["id"],
-            "modele" => $snow["modele"],
-            "marque" => $snow["marque"],
-            "bigimage" => $snow["bigimage"],
-            "smallimage" => $snow["smallimage"],
-            "dateretour" => $snow["dateretour"],
-            "disponible" => $snow["disponible"]
-    ];
-    }
-}
 $title = $article["modele"];
 ob_start();
 ?>

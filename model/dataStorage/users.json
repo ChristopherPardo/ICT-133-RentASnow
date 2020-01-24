@@ -1,7 +1,7 @@
 [
   {
     "username": "samuel",
-    "password": "$2y$10$OeiiyzoS5kqc.GAZjPxkU.z46DPC6GL.WmrZHgC0Nosi\\\/kjsNu7fC\"",
+    "password": "$2y$10$blPrMb705j/phk0rn2ZH1.hRMdFzBEmYJ7/S/AfzgVE77g5Kwkx7C",
     "birthdate": "2000-12-18",
     "wantnews": true,
     "date-inscription": "2020-01-02",
@@ -9,7 +9,7 @@
   },
   {
     "username": "benoit",
-    "password": "benoitmdp",
+    "password": "$2y$10$VQ2ldn.cP7b1o6KAFcGoB.qv9ypCd4ta/k8QAq0GYVBbM6ufkVovu",
     "birthdate": "2004-06-05",
     "wantnews": false,
     "date-inscription": "2020-01-02",
@@ -17,34 +17,10 @@
   },
   {
     "username": "miguel",
-    "password": "miguelmdp",
+    "password": "$2y$10$EfsHS4EqCvLB6B.AU4aSYebMHcbdQhGzow/7TwOxDzXkIFrg4KmyK",
     "birthdate": "2002-11-15",
     "wantnews": true,
     "date-inscription": "2020-01-02",
     "employe": false
-  },
-  {
-    "username": "test",
-    "password": "$2y$10$Yh3S5wVuH0BeeeCxT6Ta3OPtjmAYJVAAjLRYEoRcXjO635NXZNrNi",
-    "birthdate": "2020-01-10",
-    "wantnews": false,
-    "date-inscription": "2020-01-23",
-    "employe": true
-  },
-  {
-    "username": "test2",
-    "password": "$2y$10$sQ5O1\/H4upVb39g1EgoxdO9C4u0dkREkOZHyT.s2ay.OYuxeEzJLC",
-    "birthdate": "2020-01-10",
-    "wantnews": false,
-    "date-inscription": "2020-01-23",
-    "employe": true
-  },
-  {
-    "username": "test3",
-    "password": "$2y$10$2JBviX6ckPsnAjZTTAasKeeyNumlOFO0talon\/PAZs0fFdWjT1Iy6",
-    "birthdate": "2020-01-08",
-    "wantnews": false,
-    "date-inscription": "2020-01-23",
-    "employe": true
   }
 ]

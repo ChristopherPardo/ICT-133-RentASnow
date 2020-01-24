@@ -10,10 +10,8 @@ require "controler/controler.php";
 
 
 if (isset($_POST["username"])){
-    //extract($_POST); //$username,$password,$birthdate,$employe,$wantnews,$date-inscription
-    $username = $_POST["username"];
-    //$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $password = $_POST["password"];
+    extract($_POST); //$username,$password,$birthdate,$employe,$wantnews,$date-inscription
+    //$password = password_hash($_POST["password"], PASSWORD_DEFAULT); //The hashing doesn't work
 }
 
 $page = $_GET["action"];
@@ -31,16 +29,16 @@ switch ($page){
         tryLogin($username, $password);
         break;
     case "articlePage" :
-        articlePage();
+        $article = findArticle($_GET["article"]);
+        articlePage($article);
         break;
     case "inscription" :
         inscription();
         break;
     case "tryInscription" :
-        $birthdate = $_POST["birthdate"];
-        $employe = $_POST["employe"];
-        $wantnews = $_POST["wantnews"];
-        tryInscription($username, $password, $birthdate, $employe, $wantnews);
+        $truePassword = $password;
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        tryInscription($username, $password, $birthdate, $employe, $wantnews, $truePassword);
         break;
     case "personalPage" :
         personalPage();

@@ -23,7 +23,7 @@ function login(){
     require_once 'view/login.php';
 }
 
-function articlePage(){
+function articlePage($article){
     require_once  'view/articlePage.php';
 }
 
@@ -46,7 +46,7 @@ function tryLogin($username, $password){
 
     foreach ($users as $user) {
         //If the username and the password are true the user connect to the session
-        if($user["username"] == $username && $user["password"] == $password){
+        if($user["username"] == $username && password_verify($password, $user["password"])){
             $_SESSION["user"] = $username;
             $_SESSION["password"] = $password;
             $_SESSION["birthdate"] = $user["birthdate"];
@@ -76,7 +76,7 @@ function valueForm($value){
 }
 
 //Function to register a user
-function tryInscription($username, $password, $birthdate, $employe, $wantnews){
+function tryInscription($username, $password, $birthdate, $employe, $wantnews, $truePassword){
     $users = getUsers();
 
     foreach ($users as $user){
@@ -95,7 +95,7 @@ function tryInscription($username, $password, $birthdate, $employe, $wantnews){
 
         $users[] = ["username" => $username, "password" => $password, "birthdate" => $birthdate, "wantnews" => $wantnews, "date-inscription" => date("Y-m-d", time()), "employe" => $employe];
         updateUser($users); //Add the user in the DataSheet
-        tryLogin($username, $password); //Log the user
+        tryLogin($username, $truePassword); //Log the user
     }
 }
 
