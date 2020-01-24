@@ -34,13 +34,15 @@ ob_start();
 <form action="index.php?action=changeDispo&article=<?= $article['id'] ?>" method="post">
 <?php if ($article["disponible"] == true) { ?>
     <h2>Disponible</h2>
+    <?php if ($_SESSION["employe"] == true) { ?>
     <br>
         <input type="submit" class="button" name="undispo" value="Rendre indisponible">
-    <?php } else { ?>
+    <?php } } else { ?>
     <h2>Indisponible</h2>
+    <?php if ($_SESSION["employe"] == true) { ?>
     <br>
         <input type="submit" class="button" name="dispo" value="Rendre Disponible">
-    <?php } ?>
+    <?php } } ?>
 </form>
 
 <?php
