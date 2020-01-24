@@ -6,6 +6,8 @@
  */
 
 $title = $_SESSION["user"];
+
+//Shows informations personal and a button for delet the user
 ob_start();
 ?>
 <h1>Informations personnelles</h1>

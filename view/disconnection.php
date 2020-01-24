@@ -5,6 +5,7 @@
  * Project : Rent a snow
  */
 
+//Page of disconnection
 $title = "disconnection";
 ob_start();
 ?>

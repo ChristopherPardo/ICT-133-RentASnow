@@ -7,6 +7,8 @@
 
 $snows = getSnows();
 $title = $article["modele"];
+
+//Information of the article selectionned and the employe can change the disponibility
 ob_start();
 ?>
 <hr>

@@ -1,7 +1,7 @@
 <?php
 /*
  * Author : Christopher Pardo
- * Date : 22.01.2020
+ * Date : 24.01.2020
  * Project : Rent a snow
  */
 
@@ -42,7 +42,7 @@ function disconnect(){
 }
 
 function tryLogin($username, $password){
-    $users = getUsers();
+    $users = getUsers(); //Puts the values of the data sheet users in a table
 
     foreach ($users as $user) {
         //If the username and the password are true the user connect to the session
@@ -54,7 +54,7 @@ function tryLogin($username, $password){
             $_SESSION["employe"] = $user["employe"] ;
             $_SESSION["wantnews"] = $user["wantnews"] ;
 
-            home();
+            home(); //Return to de page home
         }
     }
 
@@ -77,24 +77,25 @@ function valueForm($value){
 
 //Function to register a user
 function tryInscription($username, $password, $birthdate, $employe, $wantnews, $truePassword){
-    $users = getUsers();
+    $users = getUsers(); //Puts the values of the data sheet users in a table
 
     foreach ($users as $user){
         //Check if the user is unique and show a error if not
         if($user["username"] == $username){
             $_SESSION["flashmessage"] = "Le nom d'utilisateur est déjà utiliser";
             $inscription = false;
-            inscription();
+            inscription(); //Return to the page of inscription
         }
     }
 
     //If the username is unique the user is register in the data and log to the session
     if (!isset($inscription)){
-        $employe = valueForm($employe);
-        $wantnews = valueForm($wantnews);
+        $employe = valueForm($employe); //Converts the value
+        $wantnews = valueForm($wantnews); //Converts the value
 
+        //Puts the values in a table
         $users[] = ["username" => $username, "password" => $password, "birthdate" => $birthdate, "wantnews" => $wantnews, "date-inscription" => date("Y-m-d", time()), "employe" => $employe];
-        updateUser($users); //Add the user in the DataSheet
+        updateUser($users); //Add the user in the data sheet
         tryLogin($username, $truePassword); //Log the user
     }
 }
@@ -112,8 +113,8 @@ function changeDispo($articleWanted) {
                 $articles[$i]["disponible"] = true;
             }
 
-            changeArticle($articles);
-            articlePage($article);
+            changeArticle($articles); //Update the data sheet
+            articlePage($article); //return to the article page of the article selected
         }
     }
 

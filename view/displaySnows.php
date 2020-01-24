@@ -7,6 +7,8 @@
 
 $title = "Display Snows";
 $snows = getSnows();
+
+//Shows the snows disponible and undibonible if an employe is connect
 ob_start();
 ?>
 <h1>List des Snowboards</h1>

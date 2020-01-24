@@ -5,6 +5,7 @@
  * Project : Rent a snow
  */
 
+//Send the form for log an user
 ob_start();
 $title = "RentASnow - Login";
 ?>

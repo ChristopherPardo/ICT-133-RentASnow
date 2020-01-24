@@ -5,6 +5,7 @@
  * Project : Rent a snow
  */
 
+//Shows the butons in the menu bar if a user is connected or no
 function login_bt()
 {
     if (isset($_SESSION["user"])) {
@@ -17,6 +18,7 @@ function login_bt()
 
 }
 
+//Set a flash message
 function flashMessage()
 {
     if (isset($_SESSION["flashmessage"])) {

@@ -1,7 +1,7 @@
 <?php
 /*
  * Author : Christopher Pardo
- * Date : 22.01.2020
+ * Date : 24.01.2020
  * Project : Rent a snow
  */
 
@@ -11,9 +11,9 @@ require "controler/controler.php";
 
 if (isset($_POST["username"])){
     extract($_POST); //$username,$password,$birthdate,$employe,$wantnews,$date-inscription
-    //$password = password_hash($_POST["password"], PASSWORD_DEFAULT); //The hashing doesn't work
 }
 
+//Takes the informations of the query string and return to a function
 $page = $_GET["action"];
 switch ($page){
     case "displaySnows" :
@@ -29,15 +29,15 @@ switch ($page){
         tryLogin($username, $password);
         break;
     case "articlePage" :
-        $article = findArticle($_GET["article"]);
+        $article = findArticle($_GET["article"]); //Get the article selectionned
         articlePage($article);
         break;
     case "inscription" :
         inscription();
         break;
     case "tryInscription" :
-        $truePassword = $password;
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        $truePassword = $password; //Password in clear
+        $password = password_hash($password, PASSWORD_DEFAULT); //Hashing password
         tryInscription($username, $password, $birthdate, $employe, $wantnews, $truePassword);
         break;
     case "personalPage" :
@@ -48,7 +48,7 @@ switch ($page){
         changeDispo($article);
         break;
     case "delUser" :
-        $username = $_SESSION["user"];
+        $username = $_SESSION["user"]; //Get the username of the connected user
         delUser($username);
         break;
     default :

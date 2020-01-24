@@ -6,6 +6,7 @@
  */
 
 $title = "Inscription";
+//Send the form for creat a new user
 ob_start();
 ?>
 <div class="container">
