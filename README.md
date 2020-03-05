@@ -1,6 +1,6 @@
 ![introBanner](imgIntroReadme.PNG)
 
-# Repository ICT-133-RentASnow
+# Repository RentASnow
 
 Pour la suite du module, vous allez développer une application en PHP sans base de données pour un site de location de snows (RentASnow). Pour ce faire, vous allez utiliser un ***template*** déjà existant.
 
