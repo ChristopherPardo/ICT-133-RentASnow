@@ -27,6 +27,11 @@ function getAllItems($table)
     }
 }
 
+function getAllNews(){
+    $news = getAllItems("news inner join users on user_id = users.id");
+    return $news;
+}
+
 //Find an article with him ID and return all the informations in a table
 function findArticle($id) {
     $snows = getSnows();

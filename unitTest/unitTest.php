@@ -18,4 +18,10 @@ else{
     print "BUG\n";
 }
 
+print "Fonction getAllNews : ";
+
+$news = getAllNews();
+
+var_dump($news);
+
 ?>

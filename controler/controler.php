@@ -11,7 +11,7 @@ require_once 'model/model.php';
 
 function home()
 {
-    $news = getAllItems("news");
+    $news = getAllNews();
     require_once 'view/home.php';
 }
 
