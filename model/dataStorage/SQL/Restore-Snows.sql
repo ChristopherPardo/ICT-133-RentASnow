@@ -164,11 +164,12 @@ INSERT INTO users (firstname,lastname,email,password,phonenumber) VALUES ('Samue
 INSERT INTO users (firstname,lastname,email,password,phonenumber) VALUES ('Bianca','Terrell','egestas.Sed.pharetra@Inscelerisquescelerisque.org','71D24344-6D7E-CD3D-52BA-DD74F95BAF00','(982) 129-3636'),('Rae','Hoover','ultricies.adipiscing@risus.ca','B7DAD358-9994-7443-2294-B50B2C88C654','(360) 361-6208'),('Tobias','Stevenson','libero@atortorNunc.edu','7E0EEC57-3C0C-6BAD-EAEB-71CCB5986AFD','(671) 882-8323'),('Bernard','Rush','in.dolor.Fusce@auctorquistristique.ca','F372DD3B-7E78-ACE5-2BFA-A7815A0C4B2A','(697) 437-1173'),('Levi','Cooper','Cras@euismodurnaNullam.com','E31647AC-10F3-8D7E-9EC8-235F9228B483','(283) 398-0088'),('Colby','Lindsay','eu@purus.org','FAF98E16-AAC6-755D-E994-6BE4A2A3188B','(246) 209-8975'),('Ursula','Moses','Cras.eu@perinceptos.org','5EA98739-3A27-0131-FD70-AE9D6FF772E8','(855) 157-2867'),('Dieter','Aguilar','penatibus@odioapurus.edu','D8D6F62B-4601-A073-81EB-2F7312A9D06B','(703) 228-6596'),('Vielka','Hansen','dui.nec@metusInnec.edu','E7F99FC7-1F39-BE12-0E61-2B1C20043275','(393) 769-9806'),('Alea','Pate','Nulla@laciniaatiaculis.edu','17FF5173-BC4D-8F85-0CDA-D69710766C9A','(569) 597-1607');
 
 update users set type=2 where rand() < 0.05;
+update users set password = sha2(firstname,256);
 
 INSERT INTO news (title, date, text, user_id) VALUES
-	('Dingue !!!','2020-01-02','Notre pote Pat d\u00e9croche la m\u00e9daille de bronze aux JoJ !!!',(SELECT id FROM users ORDER BY rand() LIMIT 1)),
-	('Enfin','2019-12-02','Le Burton X512 est l\u00e0! Selon les sp\u00e9cialistes, c\'est ce qui se fait de mieux pour le Big Air.',(SELECT id FROM users ORDER BY rand() LIMIT 1)),
-	('Des renforts','2020-01-01','Nous accueillons Lo\u00efc d\u00e8s le mois prochain pour renforcer notre \u00e9quipe de pr\u00e9parateurs',(SELECT id FROM users ORDER BY rand() LIMIT 1));
+	('Dingue !!!','2020-01-02','Notre pote Pat décroche la médaille de bronze aux JoJ !!!',(SELECT id FROM users ORDER BY rand() LIMIT 1)),
+	('Enfin','2019-12-02','Le Burton X512 est là! Selon les spécialistes, c\'est ce qui se fait de mieux pour le Big Air.',(SELECT id FROM users ORDER BY rand() LIMIT 1)),
+	('Des renforts','2020-01-01','Nous accueillons Loïc dès le mois prochain pour renforcer notre équipe de préparateurs',(SELECT id FROM users ORDER BY rand() LIMIT 1));
     
 INSERT INTO snowtypes (model,brand,photo,description,pricenew,pricegood,priceold) VALUES
   (
