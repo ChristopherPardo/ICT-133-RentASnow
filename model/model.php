@@ -5,37 +5,27 @@
  * Project : Rent a snow
  */
 
-
-//Get the values of the file news
-function getNews()
+function getPDO()
 {
-    return json_decode(file_get_contents("model/dataStorage/news.json"),true);
+    require ".const.php";
+    return new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $pass);
 }
 
-//Get the values of the file users
-function getUsers()
+function getAllItems($table)
 {
-    return json_decode(file_get_contents("model/dataStorage/users.json"),true);
+    try {
+        $dbh = getPDO();
+        $query = "SELECT * FROM $table";
+        $statment = $dbh->prepare($query); //Prepare query
+        $statment->execute(); //Execute query
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC); //Prepare result for client
+        return $queryResult;
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
 }
-
-//Get the values of the file snow
-function getSnows()
-{
-    return json_decode(file_get_contents("model/dataStorage/snows.json"),true);
-}
-
-//Change the values of the file users
-function updateUser($users)
-{
-    file_put_contents('model/dataStorage/users.json', json_encode($users));
-}
-
-//Change the values of the file snow
-function changeArticle($articles)
-{
-    file_put_contents('model/dataStorage/snows.json', json_encode($articles));
-}
-
 
 //Find an article with him ID and return all the informations in a table
 function findArticle($id) {
