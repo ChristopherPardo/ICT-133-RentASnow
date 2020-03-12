@@ -4,7 +4,6 @@
  * Date : 22.01.2020
  * Project : Rent a snow
  */
-
 ob_start();
 $title = "RentASnow - Accueil";
 ?>
@@ -33,7 +32,7 @@ $title = "RentASnow - Accueil";
             <div class="col-2"><?= date('d.M.Y', strtotime($onepieceofnews['date'])) ?></div>
             <h4 class="col-4"><?= $onepieceofnews['title'] ?></h4>
         </div>
-        <div class="row ml-5"><?= $onepieceofnews['details'] ?></div>
+        <div class="row ml-5"><?= $onepieceofnews['text'] ?></div>
     <?php } ?>
 </div>
 
