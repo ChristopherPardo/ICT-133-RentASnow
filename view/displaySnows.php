@@ -14,7 +14,7 @@ ob_start();
 <?php foreach ($snowTypes as $snowType) {
     if ($snowType == true && $_SESSION["employe"] != true ){ ?>
         <hr>
-        <a href="?action=articlePage&article=<?= $snowTypes['id'] ?>"><img src="view/images/snows/small/<?= $snowType['photo'] ?>">
+        <a href="?action=modelPage&model=<?= $snowType['model'] ?>"><img src="view/images/snows/small/<?= $snowType['photo'] ?>">
         <h2><?= $snowType['model'] ?></h2></a>
 <?php } } ?>
 <?php

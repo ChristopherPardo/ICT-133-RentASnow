@@ -37,6 +37,11 @@ function getAllSnowTypes(){
     return $snows;
 }
 
+function getAModel($name){
+    $model = getAllItems("snows inner join snowtypes on snowtypes.id = snowtype_id where snowtypes.model = '$name'");
+    return $model;
+}
+
 //Find an article with him ID and return all the informations in a table
 function findArticle($id) {
     $snows = getSnows();

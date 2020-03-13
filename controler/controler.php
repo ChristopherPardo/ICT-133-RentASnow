@@ -25,7 +25,13 @@ function login(){
 }
 
 function articlePage($article){
+    $article = getAnArticle($article);
     require_once  'view/articlePage.php';
+}
+
+function modelPage($model){
+    $model = getAModel($model);
+    require_once  'view/modelPage.php';
 }
 
 function inscription(){
