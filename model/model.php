@@ -32,6 +32,11 @@ function getAllNews(){
     return $news;
 }
 
+function getAllSnowTypes(){
+    $snows = getAllItems("snowtypes");
+    return $snows;
+}
+
 //Find an article with him ID and return all the informations in a table
 function findArticle($id) {
     $snows = getSnows();

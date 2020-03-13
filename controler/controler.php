@@ -16,6 +16,7 @@ function home()
 }
 
 function displaySnows(){
+    $snowTypes = getAllSnowTypes();
     require_once 'view/displaySnows.php';
 }
 
