@@ -5,7 +5,7 @@
   Date : 12.03.2020
 */
 
-$dbhost = 'localhost';
+$dbhost = '127.0.0.1';
 $dbname = 'snows';
 $user = 'Snowboarder';
 $pass = 'Pa$$w0rd';
