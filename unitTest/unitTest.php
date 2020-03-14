@@ -6,6 +6,9 @@
 */
 
 require_once "model/model.php";
+require 'model/.const.php';
+$cmd = 'mysql -u $user -p$pass < model/dataStorage/SQL/Restore-Snows.sql';
+exec($cmd);
 
 print "Fonction getAllItem : ";
 
