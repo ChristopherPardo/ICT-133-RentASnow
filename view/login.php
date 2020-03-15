@@ -16,7 +16,10 @@ $title = "RentASnow - Login";
         <h1>Connexion</h1>
 
         <label><b>Nom d'utilisateur</b></label>
-        <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+        <br>
+        <input type="text" placeholder="Entrer votre prénom" name="firstname" required>
+        <br>
+        <input type="text" placeholder="Entrer votre nom" name="lastname" required>
         <br>
         <label><b>Mot de passe</b></label>
         <input type="password" placeholder="Entrer le mot de passe" name="password" required>

@@ -42,6 +42,11 @@ function getAModel($name){
     return $model;
 }
 
+function getUsers(){
+    $users = getAllItems("users");
+    return $users;
+}
+
 //Find an article with him ID and return all the informations in a table
 function findArticle($id) {
     $snows = getSnows();

@@ -48,25 +48,22 @@ function disconnect(){
     require_once 'view/disconnection.php';
 }
 
-function tryLogin($username, $password){
+function tryLogin($firstname, $lastname, $password){
     $users = getUsers(); //Puts the values of the data sheet users in a table
 
     foreach ($users as $user) {
         //If the username and the password are true the user connect to the session
-        if($user["username"] == $username && password_verify($password, $user["password"])){
-            $_SESSION["user"] = $username;
-            $_SESSION["password"] = $password;
-            $_SESSION["birthdate"] = $user["birthdate"];
-            $_SESSION["date-inscription"] = $user["date-inscription"] ;
-            $_SESSION["employe"] = $user["employe"] ;
-            $_SESSION["wantnews"] = $user["wantnews"] ;
+        if($user["firstname"] == $firstname && $user["lastname"] == $lastname && $user["password"] == $password){
+            $_SESSION["firstname"] = $user["firstname"];
+            $_SESSION["lastname"] = $user["lastname"];
+            $_SESSION["password"] = $user["password"];
 
             home(); //Return to de page home
         }
     }
 
     //If the form is false the page show a error
-    if(!isset($_SESSION["user"])){
+    if(!isset($_SESSION["firstname"])){
         $_SESSION["flashmessage"] = "Le nom d'utilisateur ou le mod de passe est incorrect";
         login();
     }

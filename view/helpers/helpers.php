@@ -8,9 +8,9 @@
 //Shows the butons in the menu bar if a user is connected or no
 function login_bt()
 {
-    if (isset($_SESSION["user"])) {
+    if (isset($_SESSION["firstname"])) {
         return "<li><a href='index.php?action=disconnect'>Disconnect</a></li>
-                <li><a href='index.php?action=personalPage'>".$_SESSION["user"]."</a></li>";
+                <li><a href='index.php?action=personalPage'>".$_SESSION["firstname"]." ".$_SESSION["lastname"]."</a></li>";
     } else {
         return "<li><a href='index.php?action=login'>Login</a></li>
                 <li><a href='index.php?action=inscription'>Inscription</a></li>";

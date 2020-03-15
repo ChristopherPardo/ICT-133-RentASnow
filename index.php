@@ -9,8 +9,8 @@ session_start();
 require "controler/controler.php";
 
 
-if (isset($_POST["username"])){
-    extract($_POST); //$username,$password,$birthdate,$employe,$wantnews,$date-inscription
+if (isset($_POST["firstname"])){
+    extract($_POST); //$firstname,$lastname,$password,$birthdate,$employe,$wantnews,$date-inscription
 }
 
 //Takes the informations of the query string and return to a function
@@ -26,7 +26,7 @@ switch ($page){
         disconnect();
         break;
     case "tryLogin" :
-        tryLogin($username, $password);
+        tryLogin($firstname, $lastname, $password);
         break;
     case "articlePage" :
         $article = findArticle($_GET["article"]); //Get the article selectionned
