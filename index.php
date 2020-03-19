@@ -10,7 +10,7 @@ require "controler/controler.php";
 
 
 if (isset($_POST["firstname"])){
-    extract($_POST); //$firstname,$lastname,$password,$birthdate,$employe,$wantnews,$date-inscription
+    extract($_POST); //$firstname,$lastname,$password,$email,$phonenumber,$type
 }
 
 //Takes the informations of the query string and return to a function
@@ -41,7 +41,7 @@ switch ($page){
     case "tryInscription" :
         $truePassword = $password; //Password in clear
         $password = password_hash($password, PASSWORD_DEFAULT); //Hashing password
-        tryInscription($username, $password, $birthdate, $employe, $wantnews, $truePassword);
+        tryInscription($firstname, $lastname, $password, $email, $phonenumber, $type, $truePassword);
         break;
     case "personalPage" :
         personalPage();

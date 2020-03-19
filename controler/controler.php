@@ -64,7 +64,7 @@ function tryLogin($firstname, $lastname, $password){
 
     //If the form is false the page show a error
     if(!isset($_SESSION["firstname"])){
-        $_SESSION["flashmessage"] = "Le nom d'utilisateur ou le mod de passe est incorrect";
+        $_SESSION["flashmessage"] = "Le nom d'utilisateur ou le mot de passe est incorrect";
         login();
     }
 }
@@ -72,21 +72,21 @@ function tryLogin($firstname, $lastname, $password){
 //Covert the value "on" to "true"
 function valueForm($value){
     if ($value == "on"){
-        return true;
+        return 2;
     }
     else{
-        return false;
+        return 1;
     }
 }
 
 //Function to register a user
-function tryInscription($username, $password, $birthdate, $employe, $wantnews, $truePassword){
+function tryInscription($firstname,$lastname,$password,$email,$phonenumber,$type,$truePassword){
     $users = getUsers(); //Puts the values of the data sheet users in a table
 
     foreach ($users as $user){
         //Check if the user is unique and show a error if not
-        if($user["username"] == $username){
-            $_SESSION["flashmessage"] = "Le nom d'utilisateur est déjà utiliser";
+        if($user["email"] == $email){
+            $_SESSION["flashmessage"] = "L'e-mail est déjà utilisé";
             $inscription = false;
             inscription(); //Return to the page of inscription
         }
@@ -94,13 +94,10 @@ function tryInscription($username, $password, $birthdate, $employe, $wantnews, $
 
     //If the username is unique the user is register in the data and log to the session
     if (!isset($inscription)){
-        $employe = valueForm($employe); //Converts the value
-        $wantnews = valueForm($wantnews); //Converts the value
+        $type = valueForm($type); //Converts the value
 
-        //Puts the values in a table
-        $users[] = ["username" => $username, "password" => $password, "birthdate" => $birthdate, "wantnews" => $wantnews, "date-inscription" => date("Y-m-d", time()), "employe" => $employe];
-        updateUser($users); //Add the user in the data sheet
-        tryLogin($username, $truePassword); //Log the user
+        updateUser($firstname,$lastname,$password,$email,$phonenumber,$type); //Add the user in the data sheet
+        tryLogin($firstname,$lastname, $truePassword); //Log the user
     }
 }
 

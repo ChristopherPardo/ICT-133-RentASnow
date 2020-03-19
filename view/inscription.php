@@ -15,19 +15,21 @@ ob_start();
         <h1>Inscription</h1>
 
         <label><b>Nom d'utilisateur</b></label>
-        <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+        <br>
+        <input type="text" placeholder="Entrer votre prénom" name="firstname" required>
+        <input type="text" placeholder="Entrer votre nom" name="lastname" required>
         <br>
         <label><b>Mot de passe</b></label>
         <input type="password" placeholder="Entrer le mot de passe" name="password" required>
         <br>
-        <label><b>Date de naissance</b></label>
-        <input type="date" name="birthdate" required>
+        <label><b>E-mail</b></label>
+        <input type="email" placeholder="Entrer votre E-mail" name="email" required>
+        <br>
+        <label><b>Numéro de télléphone</b></label>
+        <input type="text" name="phonenumber" required>
         <br>
         <label><b>Êtes-vous un employé ?</b></label>
-        <input type="checkbox" name="employe">
-        <br>
-        <label><b>Voulez-vous vous inscrire à la newsletter ?</b></label>
-        <input type="checkbox" name="wantnews">
+        <input type="checkbox" name="type">
         <br>
         <input type="submit" value='Connexion'>
     </form>
