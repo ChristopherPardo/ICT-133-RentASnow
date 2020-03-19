@@ -53,7 +53,7 @@ function tryLogin($firstname, $lastname, $password){
 
     foreach ($users as $user) {
         //If the username and the password are true the user connect to the session
-        if($user["firstname"] == $firstname && $user["lastname"] == $lastname && $user["password"] == $password){
+        if($user["firstname"] == $firstname && $user["lastname"] == $lastname && password_hash($password, PASSWORD_DEFAULT)){
             $_SESSION["firstname"] = $user["firstname"];
             $_SESSION["lastname"] = $user["lastname"];
             $_SESSION["password"] = $user["password"];
