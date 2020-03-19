@@ -38,6 +38,7 @@ switch ($page){
     case "modelPage" :
         $model = $_GET["model"];
         modelPage($model);
+        break;
     case "tryInscription" :
         $truePassword = $password; //Password in clear
         $password = password_hash($password, PASSWORD_DEFAULT); //Hashing password
