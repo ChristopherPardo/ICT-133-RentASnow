@@ -96,7 +96,14 @@ function tryInscription($firstname,$lastname,$password,$email,$phonenumber,$type
     if (!isset($inscription)){
         $type = valueForm($type); //Converts the value
 
-        updateUser($firstname,$lastname,$password,$email,$phonenumber,$type); //Add the user in the data sheet
+
+        $newUser = ["firstname" => $firstname,
+                    "lastname" => $lastname,
+                    "password" => $password,
+                    "email" => $email,
+                    "phonenumber" => $phonenumber,
+                    "type" => $type];
+        addAUser($newUser); //Add the user in the data sheet
         tryLogin($firstname,$lastname, $truePassword); //Log the user
     }
 }

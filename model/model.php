@@ -47,6 +47,21 @@ function getUsers(){
     return $users;
 }
 
+function addAUser($user){
+    try {
+        $dbh = getPDO();
+        $query = "INSERT INTO users (firstname,lastname,password,email,phonenumber,type) VALUES ('{$user["firstname"]}', '{$user["lastname"]}', '{$user["password"]}', '{$user["email"]}', '{$user["phonenumber"]}', {$user["type"]})";
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute();//execute query
+        $queryResult = $statement->fetch();//prepare result for client
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
 //Find an article with him ID and return all the informations in a table
 function findArticle($id) {
     $snows = getSnows();
