@@ -83,6 +83,21 @@ function addAUser($user){
     }
 }
 
+function delAnItem($table){
+    try {
+        $dbh = getPDO();
+        $query = "DELETE FROM $table";
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute();//execute query
+        $queryResult = $statement->fetch();//prepare result for client
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
 //Find an article with him ID and return all the informations in a table
 function findArticle($id) {
     $snows = getSnows();
