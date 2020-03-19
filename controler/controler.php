@@ -39,6 +39,7 @@ function inscription(){
 }
 
 function personalPage(){
+    $user = getAnUser($_SESSION["firstname"]);
     require_once 'view/personalPage.php';
 }
 

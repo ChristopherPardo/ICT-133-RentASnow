@@ -27,6 +27,22 @@ function getAllItems($table)
     }
 }
 
+function getAnItems($table)
+{
+    try {
+        $dbh = getPDO();
+        $query = "SELECT * FROM $table";
+        $statment = $dbh->prepare($query); //Prepare query
+        $statment->execute(); //Execute query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC); //Prepare result for client
+        return $queryResult;
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
 function getAllNews(){
     $news = getAllItems("news inner join users on user_id = users.id");
     return $news;
@@ -45,6 +61,11 @@ function getAModel($name){
 function getUsers(){
     $users = getAllItems("users");
     return $users;
+}
+
+function getAnUser($firstname){
+    $user = getAnItems("users where firstname = '{$firstname}'");
+    return $user;
 }
 
 function addAUser($user){

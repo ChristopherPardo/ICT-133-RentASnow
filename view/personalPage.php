@@ -12,10 +12,11 @@ ob_start();
 ?>
 <h1>Informations personnelles</h1>
 <br><br>
-<h2>Nom : <?= $_SESSION["user"] ?></h2>
-<h2>Date de naissance : <?= $_SESSION["birthdate"] ?></h2>
-<h3>Inscrit depuis le <?= $_SESSION["date-inscription"] ?></h3>
-<?php if ($_SESSION["employe"] == true) { ?>
+<h2>Nom : <?= $user["lastname"] ?></h2>
+<h2>Prénom : <?= $user["firstname"] ?></h2>
+<h2>E-Mail : <?= $user["email"] ?></h2>
+<h2>Numéro de téléphone : <?= $user["phonenumber"] ?></h2>
+<?php if ($user["type"] == 2) { ?>
     <h3>Vous êtes un employé</h3>
    <?php } else { ?>
     <h3>Vous êtes un client</h3>
