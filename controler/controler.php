@@ -42,6 +42,10 @@ function personalPage(){
     require_once 'view/personalPage.php';
 }
 
+function cartPage(){
+    require_once 'view/cartPage.php';
+}
+
 //Disconnect and return the the disconnection's page
 function disconnect(){
     session_unset();

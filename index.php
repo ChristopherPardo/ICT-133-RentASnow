@@ -54,6 +54,9 @@ switch ($page){
         $username = $_SESSION["user"]; //Get the username of the connected user
         delUser($username);
         break;
+    case "cartPage" :
+        cartPage();
+        break;
     default :
         home();
         break;
