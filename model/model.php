@@ -107,6 +107,10 @@ function delUser($email){
     dellAnItem("users where email = '$email'");
 }
 
+function delNew($id){
+    dellAnItem("news where id = $id");
+}
+
 function addNew($new){
     addAnItem("news (date, title, text, user_id)
     VALUES ('{$new["date"]}', '{$new["title"]}', '{$new["text"]}', '{$new["user_id"]}')");

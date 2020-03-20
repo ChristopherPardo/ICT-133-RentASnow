@@ -63,6 +63,9 @@ switch ($page){
         extract($_POST); //$title, $text
         prepareNew($title, $text);
         break;
+    case "delNew" :
+        $id = $_GET["new"];
+        delNew($id);
     default :
         home();
         break;

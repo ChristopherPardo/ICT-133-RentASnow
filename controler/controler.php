@@ -63,6 +63,7 @@ function tryLogin($firstname, $lastname, $password){
             $_SESSION["lastname"] = $user["lastname"];
             $_SESSION["password"] = $user["password"];
             $_SESSION["email"] = $user["email"];
+            $_SESSION["id"] = $user["id"];
 
             home(); //Return to de page home
         }
