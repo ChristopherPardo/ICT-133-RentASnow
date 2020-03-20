@@ -40,7 +40,7 @@ $title = "RentASnow - Accueil";
     <br><br>
     <form action="index.php?action=addNew" method="post">
         <input type="text" placeholder="Titre" name="title" required><br>
-        <textarea placeholder="Votre commentaire" name="text" required></textarea><br>
+        <textarea cols="100%" placeholder="Votre commentaire" name="text" required></textarea><br>
         <button type="submit">Envoyer votre commentaire</button>
     </form>
 <?php } ?>
