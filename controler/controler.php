@@ -131,8 +131,19 @@ function changeDispo($articleWanted) {
             articlePage($article); //return to the article page of the article selected
         }
     }
+}
 
+function prepareNew($title, $text){
+    $date = date("Y-m-j G:i:s", time());
+    $user = getAnUser($_SESSION["firstname"]);
 
+    $new = ["title" => $title,
+            "text" => $text,
+            "date" => $date,
+            "user_id" => $user["id"]];
+
+    addNew($new);
+    home();
 
 }
 

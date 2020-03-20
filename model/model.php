@@ -68,10 +68,10 @@ function getAnUser($firstname){
     return $user;
 }
 
-function addAUser($user){
+function addAnItem($table){
     try {
         $dbh = getPDO();
-        $query = "INSERT INTO users (firstname,lastname,password,email,phonenumber,type) VALUES ('{$user["firstname"]}', '{$user["lastname"]}', '{$user["password"]}', '{$user["email"]}', '{$user["phonenumber"]}', {$user["type"]})";
+        $query = "INSERT INTO $table";
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute();//execute query
         $queryResult = $statement->fetch();//prepare result for client
@@ -81,6 +81,11 @@ function addAUser($user){
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;
     }
+}
+
+function addAUser($user){
+    addAnItem("users (firstname,lastname,password,email,phonenumber,type)
+    VALUES ('{$user["firstname"]}', '{$user["lastname"]}', '{$user["password"]}', '{$user["email"]}', '{$user["phonenumber"]}', {$user["type"]})");
 }
 
 function dellAnItem($table){
@@ -100,6 +105,11 @@ function dellAnItem($table){
 
 function delUser($email){
     dellAnItem("users where email = '$email'");
+}
+
+function addNew($new){
+    addAnItem("news (date, title, text, user_id)
+    VALUES ('{$new["date"]}', '{$new["title"]}', '{$new["text"]}', '{$new["user_id"]}')");
 }
 
 //Find an article with him ID and return all the informations in a table

@@ -59,6 +59,10 @@ switch ($page){
     case "cartPage" :
         cartPage();
         break;
+    case "addNew" :
+        extract($_POST); //$title, $text
+        prepareNew($title, $text);
+        break;
     default :
         home();
         break;
