@@ -83,7 +83,7 @@ function addAUser($user){
     }
 }
 
-function delAnItem($table){
+function dellAnItem($table){
     try {
         $dbh = getPDO();
         $query = "DELETE FROM $table";
@@ -96,6 +96,10 @@ function delAnItem($table){
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;
     }
+}
+
+function delUser($email){
+    dellAnItem("users where email = '$email'");
 }
 
 //Find an article with him ID and return all the informations in a table

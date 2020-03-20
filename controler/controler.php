@@ -62,6 +62,7 @@ function tryLogin($firstname, $lastname, $password){
             $_SESSION["firstname"] = $user["firstname"];
             $_SESSION["lastname"] = $user["lastname"];
             $_SESSION["password"] = $user["password"];
+            $_SESSION["email"] = $user["email"];
 
             home(); //Return to de page home
         }
@@ -133,19 +134,6 @@ function changeDispo($articleWanted) {
 
 
 
-}
-
-function delUser($username) {
-   $users = getUsers();
-
-   foreach ($users as $i => $user) {
-       if ($user["username"] == $username) {
-           unset($users[$i]);
-       }
-   }
-
-   updateUser($users);
-   disconnect();
 }
 
 ?>

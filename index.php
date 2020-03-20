@@ -52,8 +52,9 @@ switch ($page){
         changeDispo($article);
         break;
     case "delUser" :
-        $username = $_SESSION["user"]; //Get the username of the connected user
-        delUser($username);
+        $email = $_SESSION["email"]; //Get the username of the connected user
+        delUser($email);
+        disconnect();
         break;
     case "cartPage" :
         cartPage();
