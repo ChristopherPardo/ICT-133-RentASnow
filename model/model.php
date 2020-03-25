@@ -117,24 +117,8 @@ function addNew($new){
 }
 
 //Find an article with him ID and return all the informations in a table
-function findArticle($id) {
-    $snows = getSnows();
-
-    foreach ($snows as $snow){
-        if ($snow["id"] == $id){
-            $article = [
-
-                "id" => $snow["id"],
-                "modele" => $snow["modele"],
-                "marque" => $snow["marque"],
-                "bigimage" => $snow["bigimage"],
-                "smallimage" => $snow["smallimage"],
-                "dateretour" => $snow["dateretour"],
-                "disponible" => $snow["disponible"]
-            ];
-
-            return $article;
-        }
-    }
+function getAnArticle($id) {
+    $snow = getAnItems("snows inner join snowtypes on snowtypes.id = snowtype_id where snows.id = '$id'");
+    return $snow;
 }
 ?>

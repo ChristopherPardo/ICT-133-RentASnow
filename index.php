@@ -57,7 +57,8 @@ switch ($page){
         disconnect();
         break;
     case "cartPage" :
-        cartPage();
+        $cart = $_SESSION["cart"];
+        cartPage($cart);
         break;
     case "addNew" :
         extract($_POST); //$title, $text
@@ -66,6 +67,10 @@ switch ($page){
     case "delNew" :
         $id = $_GET["new"];
         delNew($id);
+    case "test" :
+        $article = getAnArticle($_GET["test"]);
+        addToCart($article);
+        break;
     default :
         home();
         break;

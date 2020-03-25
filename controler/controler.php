@@ -43,7 +43,7 @@ function personalPage(){
     require_once 'view/personalPage.php';
 }
 
-function cartPage(){
+function cartPage($cart){
     require_once 'view/cartPage.php';
 }
 
@@ -146,6 +146,11 @@ function prepareNew($title, $text){
     addNew($new);
     home();
 
+}
+
+function addToCart($article){
+    $_SESSION["cart"][] = $article;
+    modelPage($article["model"]);
 }
 
 ?>
