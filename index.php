@@ -9,7 +9,7 @@ session_start();
 require "controler/controler.php";
 
 
-if (isset($_POST["firstname"])){
+if (isset($_POST["email"])){
     extract($_POST); //$firstname,$lastname,$password,$email,$phonenumber,$type
 }
 
@@ -26,7 +26,7 @@ switch ($page){
         disconnect();
         break;
     case "tryLogin" :
-        tryLogin($firstname, $lastname, $password);
+        tryLogin($email, $password);
         break;
     case "articlePage" :
         $article = findArticle($_GET["article"]); //Get the article selectionned

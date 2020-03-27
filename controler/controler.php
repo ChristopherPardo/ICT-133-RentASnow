@@ -39,7 +39,7 @@ function inscription(){
 }
 
 function personalPage(){
-    $user = getAnUser($_SESSION["firstname"]);
+    $user = getAnUser($_SESSION["email"]);
     require_once 'view/personalPage.php';
 }
 
@@ -53,12 +53,12 @@ function disconnect(){
     require_once 'view/disconnection.php';
 }
 
-function tryLogin($firstname, $lastname, $password){
+function tryLogin($email, $password){
     $users = getUsers(); //Puts the values of the data sheet users in a table
 
     foreach ($users as $user) {
         //If the username and the password are true the user connect to the session
-        if($user["firstname"] == $firstname && $user["lastname"] == $lastname && password_verify($password, $user["password"])){
+        if($user["email"] == $email && password_verify($password, $user["password"])){
             $_SESSION["firstname"] = $user["firstname"];
             $_SESSION["lastname"] = $user["lastname"];
             $_SESSION["password"] = $user["password"];
@@ -71,7 +71,7 @@ function tryLogin($firstname, $lastname, $password){
 
     //If the form is false the page show a error
     if(!isset($_SESSION["firstname"])){
-        $_SESSION["flashmessage"] = "Le nom d'utilisateur ou le mot de passe est incorrect";
+        $_SESSION["flashmessage"] = "L'e-amil ou le mot de passe est incorrect";
         login();
     }
 }

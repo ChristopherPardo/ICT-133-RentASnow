@@ -63,8 +63,8 @@ function getUsers(){
     return $users;
 }
 
-function getAnUser($firstname){
-    $user = getAnItems("users where firstname = '{$firstname}'");
+function getAnUser($email){
+    $user = getAnItems("users where email = '$email'");
     return $user;
 }
 
