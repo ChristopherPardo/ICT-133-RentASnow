@@ -8,7 +8,6 @@
 session_start();
 require "controler/controler.php";
 
-
 if (isset($_POST["email"])){
     extract($_POST); //$firstname,$lastname,$password,$email,$phonenumber,$type
 }

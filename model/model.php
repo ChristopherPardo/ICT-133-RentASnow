@@ -121,4 +121,26 @@ function getAnArticle($id) {
     $snow = getAnItems("snows inner join snowtypes on snowtypes.id = snowtype_id where snows.id = '$id'");
     return $snow;
 }
+
+function changeAllPasswords(){
+    $users = getUsers();
+
+    foreach ($users as $user) {
+        $password = password_hash($user["firstname"], PASSWORD_DEFAULT);
+        $user["password"] = $password;
+
+        try {
+            $dbh = getPDO();
+            $query = "update users set password = :password where id = :id";
+            $statement = $dbh->prepare($query);//prepare query
+            $statement->execute(["password" => $password, "id" => $user["id"]]);//execute query
+            $queryResult = $statement->fetchAll();//prepare result for client
+            $dbh = null;
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            return null;
+        }
+
+    }
+}
 ?>
