@@ -28,7 +28,8 @@ switch ($page){
         tryLogin($email, $password);
         break;
     case "articlePage" :
-        $article = findArticle($_GET["article"]); //Get the article selectionned
+        $article = getAnArticle($_GET["article"]); //Get the article selectionned
+        $article["id"] = $_GET["article"];
         articlePage($article);
         break;
     case "inscription" :

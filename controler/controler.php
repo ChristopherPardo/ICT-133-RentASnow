@@ -25,7 +25,7 @@ function login(){
 }
 
 function articlePage($article){
-    $article = getAnArticle($article);
+    $article = $article;
     require_once  'view/articlePage.php';
 }
 

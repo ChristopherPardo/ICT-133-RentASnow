@@ -11,7 +11,7 @@ ob_start();
 
 <?php foreach ($model as $snow) { ?>
     <hr>
-    <img src="view/images/snows/small/<?= $snow['photo'] ?>">
+    <a href="index.php?action=articlePage&article=<?= $snow["id"] ?>"><img src="view/images/snows/small/<?= $snow['photo'] ?>">
     <h2><?= $snow['model'] ?></h2></a>
     <h2>longueur : <?= $snow["length"] ?> cm</h2>
     <?php if ($snow["available"] == 1) { ?>
