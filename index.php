@@ -67,8 +67,8 @@ switch ($page){
     case "delNew" :
         $id = $_GET["new"];
         delNew($id);
-    case "test" :
-        $article = getAnArticle($_GET["test"]);
+    case "addToCart" :
+        $article = getAnArticle($_GET["id"]);
         addToCart($article);
         break;
     default :
