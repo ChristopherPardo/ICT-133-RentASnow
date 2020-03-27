@@ -58,6 +58,11 @@ function getAModel($name){
     return $model;
 }
 
+function getRents($snow_id){
+    $rents = getAllItems("rents inner join rentsdetails on rents.id = rent_id where snow_id = $snow_id order by start_on");
+    return $rents;
+}
+
 function getUsers(){
     $users = getAllItems("users");
     return $users;
@@ -142,5 +147,10 @@ function changeAllPasswords(){
         }
 
     }
+}
+
+function getAnUserById($id){
+    $user = getAnItems("users where id = $id");
+    return $user;
 }
 ?>

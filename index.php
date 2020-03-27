@@ -30,7 +30,8 @@ switch ($page){
     case "articlePage" :
         $article = getAnArticle($_GET["article"]); //Get the article selectionned
         $article["id"] = $_GET["article"];
-        articlePage($article);
+        $rents = getRents($_GET["article"]);
+        articlePage($article, $rents);
         break;
     case "inscription" :
         inscription();

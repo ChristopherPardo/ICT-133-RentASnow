@@ -25,18 +25,17 @@ ob_start();
                 <button type="button" class="btn btn-success">Ajouter au pannier</button>
             </a>
         <?php }
-        if ($_SESSION["employe"] == true) { ?>
-            <br>
-            <input type="submit" class="button" name="undispo" value="Rendre indisponible">
-        <?php }
     } else { ?>
         <h2>Indisponible</h2>
-        <?php if ($_SESSION["employe"] == true) { ?>
-            <br>
-            <input type="submit" class="button" name="dispo" value="Rendre Disponible">
-        <?php }
-    } ?>
+    <?php } ?>
 </form>
+<div>
+    <br>
+    <?php foreach ($rents as $rent) {
+        $user = getAnUserById($rent["user_id"]); ?>
+        <p>Loué le <?= $rent["start_on"] ?> par <?= $user["email"] ?></p>
+    <?php } ?>
+</div>
 
 <?php
 $content = ob_get_clean();

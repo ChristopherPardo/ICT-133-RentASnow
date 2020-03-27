@@ -24,8 +24,7 @@ function login(){
     require_once 'view/login.php';
 }
 
-function articlePage($article){
-    $article = $article;
+function articlePage($article, $rents){
     require_once  'view/articlePage.php';
 }
 
