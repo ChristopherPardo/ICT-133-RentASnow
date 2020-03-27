@@ -16,6 +16,8 @@ ob_start();
         <hr>
         <a href="?action=modelPage&model=<?= $snowType['model'] ?>"><img src="view/images/snows/small/<?= $snowType['photo'] ?>">
         <h2><?= $snowType['model'] ?></h2></a>
+        <h2><?= $snowType["brand"] ?></h2>
+        <h2>Entre <?= $snowType["priceold"] ?> CHF et <?= $snowType["pricenew"] ?> CHF</h2>
 <?php } } ?>
 <?php
 $content = ob_get_clean();

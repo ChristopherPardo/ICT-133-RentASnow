@@ -4,7 +4,8 @@ ob_start();
 ?>
 <h1>Votre panier</h1>
 <br>
-<?php foreach ($cart as $article) { ?>
+<?php if ($cart != null) {
+    foreach ($cart as $article) { ?>
     <hr>
     <img src="view/images/snows/small/<?= $article["photo"] ?>">
     <h2><?= $article["model"] ?></h2>
@@ -15,7 +16,7 @@ ob_start();
         <h2>Indisponible</h2>
     <?php } ?>
     <input type="button" value="Supprimer">
-<?php } ?>
+<?php } } ?>
 
 <?php
 $content = ob_get_clean();
