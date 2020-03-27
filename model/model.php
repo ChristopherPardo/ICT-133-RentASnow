@@ -44,7 +44,7 @@ function getAnItems($table)
 }
 
 function getAllNews(){
-    $news = getAllItems("news inner join users on user_id = users.id");
+    $news = getAllItems("users inner join news on user_id = users.id");
     return $news;
 }
 
@@ -108,7 +108,7 @@ function delUser($email){
 }
 
 function delNew($id){
-    dellAnItem("news where id = $id");
+    dellAnItem("news where id = '$id'");
 }
 
 function addNew($new){

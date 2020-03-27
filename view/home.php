@@ -35,7 +35,7 @@ $title = "RentASnow - Accueil";
         </div>
         <div class="row ml-5"><?= $onepieceofnews['text'] ?></div>
         <?php if ($onepieceofnews["user_id"] == $_SESSION["id"]) { ?>
-            <form action="index.php?action=DelNew&new=<?= $onepieceofnews["id"] ?>" method="post">
+            <form action="index.php?action=delNew&new=<?= $onepieceofnews["id"] ?>" method="post">
                 <button type="submit">Supprimer</button>
             </form>
         <?php }
