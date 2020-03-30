@@ -55,6 +55,10 @@ function getAllSnowTypes(){
 
 function getAModel($name){
     $model = getAllItems("snowtypes inner join snows on snowtypes.id = snowtype_id where snowtypes.model = '$name'");
+    foreach ($model as $key => $snow){
+        $snow["price"] = convertPrice($snow);
+        $model[$key] = $snow;
+    }
     return $model;
 }
 
@@ -124,6 +128,7 @@ function addNew($new){
 //Find an article with him ID and return all the informations in a table
 function getAnArticle($id) {
     $snow = getAnItems("snows inner join snowtypes on snowtypes.id = snowtype_id where snows.id = '$id'");
+    $snow["price"] = convertPrice($snow);
     return $snow;
 }
 
@@ -152,5 +157,18 @@ function changeAllPasswords(){
 function getAnUserById($id){
     $user = getAnItems("users where id = $id");
     return $user;
+}
+
+function convertPrice($snow){
+    switch ($snow["state"]){
+        case 1 :
+            return $snow["pricenew"];
+        case 2 :
+            return $snow["pricegood"];
+        case 3 :
+            return $snow["priceold"];
+        case 4 :
+            return null;
+    }
 }
 ?>
