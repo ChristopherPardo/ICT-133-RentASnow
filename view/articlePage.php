@@ -18,7 +18,8 @@ ob_start();
 <h2> marque : <?= $article["brand"] ?></h2>
 <h2> code : <?= $article["code"] ?></h2>
 <form action="index.php?action=changeDispo&article=<?= $article['id'] ?>" method="post">
-    <?php if ($article["available"] == 1) { ?>
+    <?php if ($article["available"] == 1 && $article["price"] != null) { ?>
+        <h2>prix : <?= $article["price"] ?> CHF</h2>
         <h2>Disponible</h2>
         <?php if (isset($_SESSION["email"])) { ?>
             <a href="index.php?action=addToCart&id=<?= $article["id"] ?>">

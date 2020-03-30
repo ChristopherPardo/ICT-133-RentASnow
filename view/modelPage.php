@@ -14,7 +14,8 @@ ob_start();
     <a href="index.php?action=articlePage&article=<?= $snow["id"] ?>"><img src="view/images/snows/small/<?= $snow['photo'] ?>">
     <h2><?= $snow['model'] ?></h2></a>
     <h2>longueur : <?= $snow["length"] ?> cm</h2>
-    <?php if ($snow["available"] == 1) { ?>
+    <?php if ($snow["available"] == 1 && $snow["price"] != null) { ?>
+        <h2> prix : <?= $snow["price"] ?> CHF</h2>
         <h3>Disponible</h3>
         <?php if (isset($_SESSION["email"])) { ?>
             <a href="index.php?action=addToCart&id=<?= $snow["id"] ?>">
