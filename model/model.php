@@ -187,6 +187,15 @@ function UpdateAnItem($table){
     }
 }
 
+function addARent($itemId){
+    date_default_timezone_set('Europe/Zurich');
+    $timestamp = date("Y-m-j");
+    $userId = $_SESSION["id"];
+
+    addAnItem("Rents (status, start_on, user_id)
+    VALUES ('ouvert', '{$timestamp}', $userId)");
+}
+
 //Change de disponibility of an article
 function changeDispo($articleId)
 {
