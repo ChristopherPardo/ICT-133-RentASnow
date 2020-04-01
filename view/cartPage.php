@@ -5,7 +5,8 @@ ob_start();
 <h1>Votre panier</h1>
 <br>
 <?php if ($cart != null) {
-    foreach ($cart as $article) { ?>
+    foreach ($cart as $article) {
+        $total += $article["price"]; ?>
         <hr>
         <img src="view/images/snows/small/<?= $article["photo"] ?>">
         <h2><?= $article["model"] ?></h2>

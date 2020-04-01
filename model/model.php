@@ -171,4 +171,26 @@ function convertPrice($snow){
             return null;
     }
 }
+
+function UpdateAnItem($table){
+    try {
+        $dbh = getPDO();
+        $query = "update $table";
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute();//execute query
+        $queryResult = $statement->fetch();//prepare result for client
+        $dbh = null;
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
+//Change de disponibility of an article
+function changeDispo($articleId)
+{
+    updateAnItem("snows set available = 0 where id = $articleId");
+}
+
 ?>
