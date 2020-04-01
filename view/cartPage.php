@@ -16,7 +16,7 @@ ob_start();
         <?php } else { ?>
             <h2>Indisponible</h2>
         <?php } ?>
-        <input type="button" value="Supprimer">
+        <a href="index.php?action=delToCart&article=<?= $article["id"] ?>"><input type="button" value="Supprimer"></a>
     <?php }
 } ?>
 

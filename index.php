@@ -72,7 +72,12 @@ switch ($page){
         break;
     case "addToCart" :
         $article = getAnArticle($_GET["id"]);
+        $article["id"] = $_GET["id"];
         addToCart($article);
+        break;
+    case "delToCart" :
+        $articleId = $_GET["article"];
+        delToCart($articleId);
         break;
     default :
         home();

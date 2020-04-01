@@ -152,4 +152,13 @@ function addToCart($article){
     modelPage($article["model"]);
 }
 
+function delToCart($articleId){
+    foreach ($_SESSION["cart"] as $key => $article){
+        if ($article["id"] == $articleId){
+            unset($_SESSION["cart"][$key]);
+        }
+    }
+    cartPage($_SESSION["cart"]);
+}
+
 ?>
