@@ -79,6 +79,9 @@ switch ($page){
         $articleId = $_GET["article"];
         delToCart($articleId);
         break;
+    case "order" :
+        order();
+        break;
     default :
         home();
         break;

@@ -18,8 +18,10 @@ ob_start();
             <h2>Indisponible</h2>
         <?php } ?>
         <a href="index.php?action=delToCart&article=<?= $article["id"] ?>"><input type="button" value="Supprimer"></a>
-    <?php }
-} ?>
+    <?php } ?>
+    <hr>
+    <a href="index.php?action=order"><input type="button" value="Commander"></a>
+<?php } ?>
 
 <?php
 $content = ob_get_clean();

@@ -155,5 +155,20 @@ function delToCart($articleId)
     cartPage($_SESSION["cart"]);
 }
 
+function order()
+{
+    foreach ($_SESSION["cart"] as $article) {
+        if ($article["available"] == 1) {
+            changeDispo($article["id"]);
+            addARent($article["id"]);
+            unset($_SESSION["cart"]);
+            cartPage();
+        }
+        else {
+            $_SESSION["flashmessage"] = "Un des article est déjà loué";
+            cartPage();
+        }
+    }
+}
 
 ?>
