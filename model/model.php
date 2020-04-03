@@ -202,4 +202,10 @@ function changeDispo($articleId)
     updateAnItem("snows set available = 0 where id = $articleId");
 }
 
+function changeInfo($article){
+    foreach (array_keys($article) as $info) {
+        updateanItem("snows set $info = {$article["$info"]} where id = {$article["id"]}");
+    }
+}
+
 ?>

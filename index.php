@@ -48,9 +48,14 @@ switch ($page){
     case "personalPage" :
         personalPage();
         break;
-    case "changeDispo" :
-        $article = $_GET["article"];
-        changeDispo($article);
+    case "changeInfo" :
+        $article = $_POST;
+        $article["id"] = $_GET["article_Id"];
+        changeInfo($article);
+        $rents = getRents($article["id"]);
+        $article = getAnArticle($article["id"]);
+        $article["id"] = $_GET["article_Id"];
+        articlePage($article, $rents);
         break;
     case "delUser" :
         $email = $_SESSION["email"]; //Get the username of the connected user
