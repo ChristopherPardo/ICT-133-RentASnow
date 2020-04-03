@@ -128,12 +128,11 @@ function tryInscription($firstname, $lastname, $password, $email, $phonenumber, 
 function prepareNew($title, $text)
 {
     $date = date("Y-m-j G:i:s", time());
-    $user = getAnUser($_SESSION["firstname"]);
 
     $new = ["title" => $title,
         "text" => $text,
         "date" => $date,
-        "user_id" => $user["id"]];
+        "user_id" => $_SESSION["id"]];
 
     addNew($new);
     home();
