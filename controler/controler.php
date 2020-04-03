@@ -171,4 +171,30 @@ function order()
     }
 }
 
+function getAvailable($available){
+    switch ($available){
+        case 0 :
+            return "Indisponible";
+        case 1 :
+            return "Disponible";
+        default :
+            return null;
+    }
+}
+
+function getSate($state){
+    switch ($state){
+        case 1 :
+            return "Neuf";
+        case 2 :
+            return "Peut-usé";
+        case 3 :
+            return "Abîmé";
+        case 4 :
+            return "Inutilisable";
+        default :
+            return null;
+    }
+}
+
 ?>
