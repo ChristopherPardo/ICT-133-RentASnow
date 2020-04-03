@@ -83,9 +83,9 @@ function addAnItem($table){
         $query = "INSERT INTO $table";
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute();//execute query
-        $queryResult = $statement->fetch();//prepare result for client
+        $id = $dbh->lastInsertId();
         $dbh = null;
-        return $queryResult;
+        return $id;
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;
@@ -187,13 +187,13 @@ function UpdateAnItem($table){
     }
 }
 
-function addARent($itemId){
+function addARent(){
     date_default_timezone_set('Europe/Zurich');
     $timestamp = date("Y-m-j");
     $userId = $_SESSION["id"];
 
-    addAnItem("Rents (status, start_on, user_id)
-    VALUES ('ouvert', '{$timestamp}', $userId)");
+    return  addAnItem("rents (status, start_on, user_id)
+    VALUES ('ouvert', '$timestamp', $userId)");
 }
 
 //Change de disponibility of an article

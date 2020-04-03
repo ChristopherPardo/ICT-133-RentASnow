@@ -157,10 +157,10 @@ function delToCart($articleId)
 
 function order()
 {
+    $rent_id = addARent();
     foreach ($_SESSION["cart"] as $article) {
         if ($article["available"] == 1) {
             changeDispo($article["id"]);
-            addARent($article["id"]);
             unset($_SESSION["cart"]);
             cartPage();
         }
