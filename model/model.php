@@ -208,4 +208,10 @@ function changeInfo($article){
     }
 }
 
+function addRentDetail($itemId, $rent_id){
+    /*addAnItem("rentsdetails (snow_id, rent_id, nbDays, status)
+    Values ($itemId, $rent_id");*/
+    //finir les values en demandant ne nombre de jour au  moment de la commande
+}
+
 ?>

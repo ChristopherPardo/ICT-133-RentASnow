@@ -161,6 +161,7 @@ function order()
     foreach ($_SESSION["cart"] as $article) {
         if ($article["available"] == 1) {
             changeDispo($article["id"]);
+            addARentDetail($article["id"], $rent_id);
             unset($_SESSION["cart"]);
             cartPage();
         }
