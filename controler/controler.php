@@ -72,6 +72,7 @@ function tryLogin($email, $password)
             $_SESSION["password"] = $user["password"];
             $_SESSION["email"] = $user["email"];
             $_SESSION["id"] = $user["id"];
+            $_SESSION["type"] = $user["type"];
 
             home(); //Return to de page home
         }

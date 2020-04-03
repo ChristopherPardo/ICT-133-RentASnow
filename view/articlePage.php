@@ -16,20 +16,46 @@ ob_start();
 <hr>
 <h2> modele : <?= $article["model"] ?></h2>
 <h2> marque : <?= $article["brand"] ?></h2>
+<h2> longueur : <?= $article["length"] ?> m</h2>
 <h2> code : <?= $article["code"] ?></h2>
-<form action="index.php?action=changeDispo&article=<?= $article['id'] ?>" method="post">
-    <?php if ($article["available"] == 1 && $article["price"] != null) { ?>
-        <h2>prix : <?= $article["price"] ?> CHF</h2>
-        <h2>Disponible</h2>
-        <?php if (isset($_SESSION["email"])) { ?>
-            <a href="index.php?action=addToCart&id=<?= $article["id"] ?>">
-                <button type="button" class="btn btn-success">Ajouter au pannier</button>
-            </a>
-        <?php }
-    } else { ?>
-        <h2>Indisponible</h2>
-    <?php } ?>
-</form>
+<h2> État : <?= getSate($article["state"]) ?></h2>
+<?php if ($article["available"] == 1 && $article["price"] != null) { ?>
+    <h2>prix : <?= $article["price"] ?> CHF</h2>
+    <h2>Disponible</h2>
+    <?php if (isset($_SESSION["email"])) { ?>
+        <a href="?action=addToCart&id=<?= $article["id"] ?>">
+            <button type="button" class="btn btn-success">Ajouter au pannier</button>
+        </a>
+    <?php }
+} else { ?>
+    <h2>Indisponible</h2>
+<?php }
+if ($_SESSION["type"] == 2) { ?>
+    <form action="?action=changeInfo&article_Id=<?= $article['id'] ?>" method="post">
+        <br>
+        <label>Longueur</label>
+        <input type="number" name="length" value="<?= $article["length"] ?>">
+        <br>
+        <label>Code</label>
+        <input type="number" name="code" value="<?= $article["code"] ?>">
+        <br>
+        <label>État</label>
+        <select name="state">
+            <?php for ($i = 1; $i <= 4; $i++) { ?>
+                <option value="<?= $i ?>" <?= ($article["state"] == $i) ? "selected" : "" ?>><?= getSate($i) ?></option>
+            <?php } ?>
+        </select>
+        <br>
+        <label>Disponibilité</label>
+        <select name="available" value="<?= $article["available"] ?>">
+            <?php for ($i = 0; $i < 2; $i++) { ?>
+                <option value="<?= $i ?>" <?= ($article["available"] == $i) ? "selected" : "" ?>><?= getAvailable($i) ?></option>
+            <?php } ?>
+        </select>
+        <br>
+        <button type="submit">Changer les informations</button>
+    </form>
+<?php } ?>
 <div>
     <br>
     <?php foreach ($rents as $rent) {
