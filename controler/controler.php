@@ -145,6 +145,12 @@ function prepareNew($title, $text)
 
 function addToCart($article)
 {
+    foreach ($_SESSION["cart"] as $cartArticle) {
+        if ($cartArticle["id"] == $article["id"]) {
+            $_SESSION["flashmessage"] = "Cet article est déjà dans votre panier";
+            return modelPage($article["model"]);
+        }
+    }
     $_SESSION["cart"][] = $article;
     modelPage($article["model"]);
 }
