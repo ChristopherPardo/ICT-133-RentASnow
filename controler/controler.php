@@ -51,8 +51,10 @@ function personalPage()
 function cartPage($cart)
 {
     $price = 0;
-    foreach ($cart as $article) {
-        $price += $article["price"];
+    if (is_array($cart)) {
+        foreach ($cart as $article) {
+            $price += $article["price"];
+        }
     }
     require_once 'view/cartPage.php';
 }
@@ -77,6 +79,7 @@ function tryLogin($email, $password)
             $_SESSION["email"] = $user["email"];
             $_SESSION["id"] = $user["id"];
             $_SESSION["type"] = $user["type"];
+            $_SESSION["cart"];
 
             home(); //Return to de page home
         }
@@ -172,8 +175,7 @@ function order($nb_day)
         if ($article["available"] == 1) {
             changeDispo($article["id"]);
             addRentDetail($article["id"], $rent_id, $nb_day);
-        }
-        else {
+        } else {
             $_SESSION["flashmessage"] = "Un des article est déjà loué";
             cartPage($_SESSION["cart"]);
         }
@@ -182,8 +184,9 @@ function order($nb_day)
     cartPage('');
 }
 
-function getAvailable($available){
-    switch ($available){
+function getAvailable($available)
+{
+    switch ($available) {
         case 0 :
             return "Indisponible";
         case 1 :
@@ -193,8 +196,9 @@ function getAvailable($available){
     }
 }
 
-function getSate($state){
-    switch ($state){
+function getSate($state)
+{
+    switch ($state) {
         case 1 :
             return "Neuf";
         case 2 :
