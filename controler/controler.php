@@ -50,6 +50,10 @@ function personalPage()
 
 function cartPage($cart)
 {
+    $price = 0;
+    foreach ($cart as $article) {
+        $price += $article["price"];
+    }
     require_once 'view/cartPage.php';
 }
 

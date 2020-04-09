@@ -20,6 +20,8 @@ ob_start();
         <a href="index.php?action=delToCart&article=<?= $article["id"] ?>"><input type="button" value="Supprimer"></a>
     <?php } ?>
     <hr>
+    <h3>Le prix total est de <?= $price ?> CHF</h3>
+    <hr>
     <form action="?action=order" method="post">
         <input type="number" name="nb_day" placeholder="Nombre de jous" required>
         <input type="submit" value="Commander">
