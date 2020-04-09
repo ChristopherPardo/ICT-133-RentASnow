@@ -20,7 +20,10 @@ ob_start();
         <a href="index.php?action=delToCart&article=<?= $article["id"] ?>"><input type="button" value="Supprimer"></a>
     <?php } ?>
     <hr>
-    <a href="index.php?action=order"><input type="button" value="Commander"></a>
+    <form action="?action=order" method="post">
+        <input type="number" name="nb_day" placeholder="Nombre de jous" required>
+        <input type="submit" value="Commander">
+    </form>
 <?php } ?>
 
 <?php

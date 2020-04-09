@@ -85,7 +85,8 @@ switch ($page){
         delToCart($articleId);
         break;
     case "order" :
-        order();
+        $nb_day = $_POST["nb_day"];
+        order($nb_day);
         break;
     default :
         home();

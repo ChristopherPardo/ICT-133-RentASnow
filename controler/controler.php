@@ -155,21 +155,21 @@ function delToCart($articleId)
     cartPage($_SESSION["cart"]);
 }
 
-function order()
+function order($nb_day)
 {
     $rent_id = addARent();
     foreach ($_SESSION["cart"] as $article) {
         if ($article["available"] == 1) {
             changeDispo($article["id"]);
-            addARentDetail($article["id"], $rent_id);
-            unset($_SESSION["cart"]);
-            cartPage();
+            addRentDetail($article["id"], $rent_id, $nb_day);
         }
         else {
             $_SESSION["flashmessage"] = "Un des article est déjà loué";
-            cartPage();
+            cartPage($_SESSION["cart"]);
         }
     }
+    unset($_SESSION["cart"]);
+    cartPage('');
 }
 
 function getAvailable($available){
